@@ -25,6 +25,11 @@ app.get("/", (req, res) => {
 // Index
 app.get("/pokemon", (req,res) => {
     res.render("Index",{pokemon})
+});
+
+// Show
+app.get("/pokemon/:id", (req, res) =>{
+    res.send(req.params.id)
 })
 
 
