@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 })
 // Index
 app.get("/pokemon", (req,res) => {
-    res.send(pokemon)
+    res.render("Index",{pokemon})
 })
 
 
