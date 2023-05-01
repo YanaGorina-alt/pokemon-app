@@ -4,6 +4,15 @@ const myStyle = {
     backgroundColor: '#ee1515'
 }
 
+const myStyledA = {
+    color: "#ffffff",
+    backgroundColor: "#ee1515",
+    padding: "10px",
+    borderRadius: "5px",
+    textDecoration: "none",
+    fontWeight: "bold",
+  };
+
 class Index extends React.Component {
     render() {
         const {pokemon} = this.props;
@@ -22,6 +31,7 @@ class Index extends React.Component {
                 )
             })}
         </ul>
+        <a  style = {myStyledA} href="/pokemon/new" >Create a Poke</a>
     </div>
    )
    } 

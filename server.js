@@ -27,6 +27,17 @@ app.get("/pokemon", (req,res) => {
     res.render("Index",{pokemon})
 });
 
+// New 
+app.get("/pokemon/new", (req,res) =>{
+    res.render("New")
+})
+
+// Create
+app.post("/pokemon", (req, res) =>{
+    pokemon.push(req.body)
+    res.redirect("/pokemon")
+})
+
 // Show
 app.get("/pokemon/:id", (req, res) =>{
     res.render("Show", {poke: pokemon[req.params.id]})
