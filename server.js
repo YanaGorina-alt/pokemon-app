@@ -51,9 +51,15 @@ app.get("/pokemon/new", (req,res) =>{
 })
 
 // Create
-app.post("/pokemon", (req, res) =>{
-    pokemon.push(req.body)
-    res.redirect("/pokemon")
+app.post("/pokemon", async (req, res) =>{
+    try{
+        const newPoke = await Poke.create(req.body);
+        console.log(newPoke);
+        res.redirect("/pokemon")
+    }catch (err){
+        req.status(400).send(err);
+    }
+
 })
 
 // Show
