@@ -38,8 +38,8 @@ app.get("/", (req, res) => {
 app.get("/pokemon", async (req,res) => {
     console.log("index Controller Function running")
     try{
-        const foundPokes = await Poke.find({})
-        res.status(200).render("Index",{pokemon: foundPokes})
+        const foundPoke = await Poke.find({})
+        res.status(200).render("Index",{pokemon: foundPoke})
     }catch (err){
         res.status(400).send(err)
     }
@@ -53,11 +53,12 @@ app.get("/pokemon/new", (req,res) =>{
 // Create
 app.post("/pokemon", async (req, res) =>{
     try{
+        
         const newPoke = await Poke.create(req.body);
         console.log(newPoke);
         res.redirect("/pokemon")
     }catch (err){
-        req.status(400).send(err);
+        res.status(400).send(err);
     }
 
 })

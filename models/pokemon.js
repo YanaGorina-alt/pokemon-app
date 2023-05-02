@@ -7,4 +7,4 @@ const pokeSchema = new Schema({
 
 const Poke = model('Poke', pokeSchema);
 
-model.exports = Poke;
+module.exports = Poke;
