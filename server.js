@@ -57,8 +57,13 @@ app.post("/pokemon", (req, res) =>{
 })
 
 // Show
-app.get("/pokemon/:id", (req, res) =>{
-    res.render("Show", {poke: pokemon[req.params.id]})
+app.get("/pokemon/:id", async (req, res) =>{
+    try{
+        const foundPoke = await Poke.findById(req.params.id)
+        res.render("Show", {poke: foundPoke})
+    }catch (err){
+        res.status(400).send(err)
+    }
 });
 
 
